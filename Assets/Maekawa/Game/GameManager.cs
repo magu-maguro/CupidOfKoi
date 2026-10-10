@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameData> gameDataList; //ゲームデータのリスト
 
     public bool isCleared = false;
+    private GameData selectedGameData;
+
+    [Header("スタート演出用")]
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject smallPanel;
+    [SerializeField] private GameObject startText;
+
+    //[Header("終了演出用")]
     void Awake()
     {
         if (Instance == null)
@@ -32,6 +40,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        startPanel.SetActive(false);
+        smallPanel.SetActive(false);
+        startText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,17 +70,26 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameStart()
     {
+        //GameData選択・スポーン処理
+        selectedGameData = SelectGameData();
+        GetComponent<CarpSpawner>().SpawnCarps(selectedGameData.koiCount);
+
+
         isCleared = false;
-        //何かしらの演出
-        yield return null;
+        //パネル表示、2秒待機、パネル非表示&右上小さいパネル表示&スタート表示
+        startPanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        startPanel.SetActive(false);
+        smallPanel.SetActive(true);
+        startText.SetActive(true);
+        //ここ効果音
+        yield return new WaitForSeconds(1f);
+        startText.SetActive(false);
     }
 
     private IEnumerator Game()
     {
         //ゲームの進行
-        //GameData選択
-        GameData selectedGameData = SelectGameData();
-
         float elapsedTime = 0f;
         while (elapsedTime < selectedGameData.timeLimit)
         {
@@ -85,6 +106,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameEnd()
     {
         //ゲーム終了後の処理
+        smallPanel.SetActive(false);
         yield return null;
     }
 
