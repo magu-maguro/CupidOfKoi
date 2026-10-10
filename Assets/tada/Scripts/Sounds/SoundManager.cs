@@ -3,19 +3,19 @@ using UnityEngine;
 
 public enum SeType
 {
-    // TODO SE種類を登録
-    SelectFish,
-    ResultSuccess,
-    ResultFailed,
+    TitleStart,        // タイトル画面：開始
+    SelectFish,        // 魚を選択
+    Smoke,             // 魚が人にかわるときの煙
+    ResultSuccess,     // 結果画面：成功
+    ResultFailed,      // 結果画面：失敗
 }
 
 public enum BgmType
 {
-    // TODO BGM種類を登録
-    Silent,
-    Title,
-    Game,
-    Result,
+    Silent,    // 無音
+    Title,     // タイトル画面
+    Game,      // ゲーム中画面
+    Result,    // 結果画面
 }
 
 public class SoundManager : MonoBehaviour
@@ -35,7 +35,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private GameObject seAudioSourcePrefab;
 
     [Header("SEファイル")]
+    [SerializeField] private AudioClip seTitleStart;
     [SerializeField] private AudioClip seSelectFish;
+    [SerializeField] private AudioClip seSmoke;
     [SerializeField] private AudioClip seResultSuccess;
     [SerializeField] private AudioClip seResultFailed;
 
@@ -47,12 +49,25 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        // すでにあるなら自身を削除
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
         instance = this;
+
+        // シーンをまたぐので残しておく
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnDestroy()
     {
-        instance = null;
+        if (instance == this)
+        {
+            instance = null;
+        }
     }
 
     // 使い方：SouncManager.Instance.PlayBgm(BgmType.Title);
@@ -129,7 +144,9 @@ public class SoundManager : MonoBehaviour
     {
         return seType switch
         {
+            SeType.TitleStart => seTitleStart,
             SeType.SelectFish => seSelectFish,
+            SeType.Smoke => seSmoke,
             SeType.ResultSuccess => seResultSuccess,
             SeType.ResultFailed => seResultFailed,
             _ => null,

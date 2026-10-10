@@ -43,6 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -175,14 +176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmAudioSource: {fileID: 4292390304846656902}
-  bgmStage: {fileID: 8300000, guid: 0cdcc91441ca6a245a9ac2a5cc8bc987, type: 3}
+  fadeDuration: 0.3
+  maxVolume: 0.2
+  bgmTitle: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
+  bgmGame: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
+  bgmResult: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
   seAudioSourceParent: {fileID: 5734589300401561869}
-  seAudioSourcePrefab: {fileID: 1611356111797058397, guid: d01e25d73db29c245acb6e65c8c8aa25, type: 3}
-  seRabitJump: {fileID: 8300000, guid: 05227d5f46997d743bbb7683100a27f2, type: 3}
-  seRabitLanding: {fileID: 8300000, guid: ab30c8a724157a142ad7ebe056d2e3ea, type: 3}
-  seGetCarrot: {fileID: 8300000, guid: d00021756e3a46147bbdf459d7fffbca, type: 3}
-  seGameOver: {fileID: 8300000, guid: ae5b3d67acfc0724ea113f71860ab5b1, type: 3}
-  seGameClear: {fileID: 8300000, guid: 7f0752481bf27834c9ba0dcdab54c247, type: 3}
+  seAudioSourcePrefab: {fileID: 1611356111797058397, guid: 3ac9822059c8a2c4ea9d62e13f055a39, type: 3}
+  seTitleStart: {fileID: 8300000, guid: d8afc547979cf384abac669eefe676a8, type: 3}
+  seSelectFish: {fileID: 8300000, guid: a182597da3cfbac4dbae33e590d3acdd, type: 3}
+  seSmoke: {fileID: 8300000, guid: a182597da3cfbac4dbae33e590d3acdd, type: 3}
+  seResultSuccess: {fileID: 8300000, guid: 65eb00c5948c1eb49822a77697eb5070, type: 3}
+  seResultFailed: {fileID: 8300000, guid: 3e26364b8f4ae2742a582da69c4af510, type: 3}
 --- !u!81 &8549729197369459256
 AudioListener:
   m_ObjectHideFlags: 0
