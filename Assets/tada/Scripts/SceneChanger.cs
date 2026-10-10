@@ -5,38 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-
-using UnityEngine.InputSystem;
-
-public class SceneChanger : MonoBehaviour
+public class SceneChanger : SingletonMonoBehaviour<SceneChanger>
 {
-    private static SceneChanger instance;
-    public static SceneChanger Instance => instance;
-
-    private void Awake()
-    {
-        // すでにあるなら自身を削除
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        instance = this;
-
-        // シーンをまたぐので残しておく
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
-    }
-
     [SerializeField] private FadeManager fade;
 
     private string currentSceneName = "";
