@@ -603,6 +603,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79eb07796e296ad41ad6beb1d62946b3, type: 3}
+--- !u!1 &517248808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79eb07796e296ad41ad6beb1d62946b3, type: 3}
+  m_PrefabInstance: {fileID: 517248807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &544920095
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +764,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc75f340e166af64185e540a3efb01ab, type: 3}
+--- !u!1 &609548081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc75f340e166af64185e540a3efb01ab, type: 3}
+  m_PrefabInstance: {fileID: 609548080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613245394
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +892,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08d9930c56873f41855c04d745312b0, type: 3}
+--- !u!1 &659204309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e08d9930c56873f41855c04d745312b0, type: 3}
+  m_PrefabInstance: {fileID: 659204308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &819594641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1215,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20f2d460e397c694dbf86111c7ed2e65, type: 3}
+--- !u!1 &1256105518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 20f2d460e397c694dbf86111c7ed2e65, type: 3}
+  m_PrefabInstance: {fileID: 1256105517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1482003935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,8 +1249,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce60cabd7eefa144fa9f6da8532db2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndingManager
-  goodendingkyaras: []
-  badendingkyaras: []
+  goodendingkyaras:
+  - {fileID: 517248808}
+  - {fileID: 659204309}
+  badendingkyaras:
+  - {fileID: 609548081}
+  - {fileID: 1256105518}
+  - {fileID: 1511978294}
   goodendimage: {fileID: 0}
   badendimage: {fileID: 0}
   titleButton: {fileID: 2114078449}
@@ -1328,6 +1353,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 885701f8477014a4f8626843c7da69e4, type: 3}
+--- !u!1 &1511978294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 885701f8477014a4f8626843c7da69e4, type: 3}
+  m_PrefabInstance: {fileID: 1511978293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950864994
 GameObject:
   m_ObjectHideFlags: 0
