@@ -12,10 +12,10 @@ public class TitleManager : MonoBehaviour
 
     void Update()
     {
-        //マウスクリックでシーン遷移
-        if(Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
+    }
+
+    public void OnClickBackgroundPanel()
+    {
+        SceneManager.LoadScene(nextSceneName);
     }
 }
