@@ -33,20 +33,20 @@ public class EndingManager : MonoBehaviour
 
     void ShowInitialEnding()
     {
-        //bool Clear = GameManager.Instance.isCleared;
-        bool Clear = true;
+        bool Clear = GameManager.Instance.isCleared;
+        //bool Clear = true;
 
         if(Clear)
         {
             goodendimage.gameObject.SetActive(true);
-            goodendingkyaras[0].gameObject.SetActive(true);
+            goodendingkyaras[1].gameObject.SetActive(true);
             titleButton.gameObject.SetActive(true);
             GoodEndingMessage.gameObject.SetActive(true);
         }
         else
         {
             badendimage.gameObject.SetActive(true);
-            badendingkyaras[0].gameObject.SetActive(true);
+            badendingkyaras[2].gameObject.SetActive(true);
             titleButton.gameObject.SetActive(true);
             BadEndingMessage.gameObject.SetActive(true);
         }
