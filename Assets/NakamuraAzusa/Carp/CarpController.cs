@@ -9,7 +9,9 @@ public class CarpController : MonoBehaviour
         Catched
     }
 
-    private CarpState _currentState = CarpState.Normal;
+    [SerializeField] private CarpState _currentState = CarpState.Normal;
+
+    [SerializeField] private CarpMove _carpMove;
 
     private void Update()
     {
@@ -29,8 +31,14 @@ public class CarpController : MonoBehaviour
         }
     }
 
-    public void TransitionTo(CarpState _newState)
+    public void TransitionTo(CarpState newState)
     {
+        _currentState = newState;
+    }
 
+    public void TransitionToCatched()
+    {
+        TransitionTo(CarpState.Catched);
+        _carpMove.NavStop();
     }
 }
