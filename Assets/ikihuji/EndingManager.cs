@@ -1,0 +1,54 @@
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEditor.Build.Content;
+
+public class EndingManager : MonoBehaviour
+{
+    public GameObject goodendimage;
+    public GameObject badendimage;
+
+    public GameObject goodendkyara;
+    public GameObject badendkyara;
+
+    public GameObject titleButton;
+
+    public TextMeshProUGUI GoodEndingMessage;
+    public TextMeshProUGUI BadEndingMessage;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        titleButton.gameObject.SetActive(false);
+
+        goodendimage.gameObject.SetActive(false);
+        badendimage.gameObject.SetActive(false);
+
+        goodendkyara.gameObject.SetActive(false);
+        badendkyara.gameObject.SetActive(false);
+
+        ShowInitialEnding();
+
+    }
+
+    void ShowInitialEnding()
+    {
+        //bool Clear = GameManager.Instance.isCleared;
+        bool Clear = true;
+
+        if(Clear)
+        {
+            goodendimage.gameObject.SetActive(true);
+            goodendkyara.gameObject.SetActive(true);
+            titleButton.gameObject.SetActive(true);
+            GoodEndingMessage.gameObject.SetActive(true);
+        }
+        else
+        {
+            badendimage.gameObject.SetActive(true);
+            badendkyara.gameObject.SetActive(true);
+            titleButton.gameObject.SetActive(true);
+            BadEndingMessage.gameObject.SetActive(true);
+        }
+    }
+}
