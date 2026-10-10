@@ -24,8 +24,8 @@ public class EndingManager : MonoBehaviour
         goodendimage.gameObject.SetActive(false);
         badendimage.gameObject.SetActive(false);
 
-        goodendkyara.gameObject.SetActive(false);
-        badendkyara.gameObject.SetActive(false);
+        goodendingkyaras[0].gameObject.SetActive(false);
+        badendingkyaras[0].gameObject.SetActive(false);
 
         ShowInitialEnding();
 
@@ -39,14 +39,14 @@ public class EndingManager : MonoBehaviour
         if(Clear)
         {
             goodendimage.gameObject.SetActive(true);
-            goodendkyara.gameObject.SetActive(true);
+            goodendingkyaras[0].gameObject.SetActive(true);
             titleButton.gameObject.SetActive(true);
             GoodEndingMessage.gameObject.SetActive(true);
         }
         else
         {
             badendimage.gameObject.SetActive(true);
-            badendkyara.gameObject.SetActive(true);
+            badendingkyaras[0].gameObject.SetActive(true);
             titleButton.gameObject.SetActive(true);
             BadEndingMessage.gameObject.SetActive(true);
         }
