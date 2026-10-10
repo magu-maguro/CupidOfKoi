@@ -24,8 +24,8 @@ public class EndingManager : MonoBehaviour
         goodendimage.gameObject.SetActive(false);
         badendimage.gameObject.SetActive(false);
 
-        goodendingkyaras[2].gameObject.SetActive(false);
-        badendingkyaras[3].gameObject.SetActive(false);
+        goodendingkyaras[1].gameObject.SetActive(false);
+        badendingkyaras[2].gameObject.SetActive(false);
 
         ShowInitialEnding();
 
