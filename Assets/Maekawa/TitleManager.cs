@@ -16,6 +16,6 @@ public class TitleManager : MonoBehaviour
 
     public void OnClickBackgroundPanel()
     {
-        SceneManager.LoadScene(nextSceneName);
+        GameManager.Instance.ChangeScene(nextSceneName);
     }
 }
