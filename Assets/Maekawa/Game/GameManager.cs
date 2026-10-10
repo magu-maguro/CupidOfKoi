@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public enum GameState
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public GameState CurrentGameState { get; private set; } = GameState.Title;
+    public event Action<float> OnTimerUpdated;
 
     [SerializeField] private List<GameData> gameDataList; //ゲームデータのリスト
 
@@ -70,7 +72,11 @@ public class GameManager : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < selectedGameData.timeLimit)
         {
+            //タイマー処理
             elapsedTime += Time.deltaTime;
+            float remainingTime = Mathf.Max(0f, selectedGameData.timeLimit - elapsedTime);
+            OnTimerUpdated?.Invoke(remainingTime);
+
             //ゲームの進行処理
             yield return null;
         }
@@ -84,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     private GameData SelectGameData()
     {
-        int randomIndex = Random.Range(0, gameDataList.Count);
+        int randomIndex = UnityEngine.Random.Range(0, gameDataList.Count);
         return gameDataList[randomIndex];
     }
 
