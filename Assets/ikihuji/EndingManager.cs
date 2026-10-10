@@ -51,4 +51,9 @@ public class EndingManager : MonoBehaviour
             BadEndingMessage.gameObject.SetActive(true);
         }
     }
+
+    public void onclicktitleButton()
+    {
+        GameManager.Instance.ChangeScene("Title");
+    }
 }
