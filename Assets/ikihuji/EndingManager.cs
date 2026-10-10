@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Build.Content;
+using System.Collections.Generic;
 
 public class EndingManager : MonoBehaviour
 {
+    public List<GameObject> goodendingkyaras;
+    public List<GameObject> badendingkyaras;
     public GameObject goodendimage;
     public GameObject badendimage;
-
-    public GameObject goodendkyara;
-    public GameObject badendkyara;
 
     public GameObject titleButton;
 
