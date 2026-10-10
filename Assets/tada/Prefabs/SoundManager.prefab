@@ -178,16 +178,16 @@ MonoBehaviour:
   bgmAudioSource: {fileID: 4292390304846656902}
   fadeDuration: 0.3
   maxVolume: 0.2
-  bgmTitle: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
-  bgmGame: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
-  bgmResult: {fileID: 8300000, guid: 11da2540be8ebe0458ef7bd25ea6d0c8, type: 3}
+  bgmTitle: {fileID: 8300000, guid: 2910e22f00cdac640a9982a88c60dba5, type: 3}
+  bgmGame: {fileID: 8300000, guid: 765d5ff7344283441aaecb840e7df17d, type: 3}
+  bgmResult: {fileID: 8300000, guid: 8713e440f111f0a44bb72cfecbb59768, type: 3}
   seAudioSourceParent: {fileID: 5734589300401561869}
   seAudioSourcePrefab: {fileID: 1611356111797058397, guid: 3ac9822059c8a2c4ea9d62e13f055a39, type: 3}
-  seTitleStart: {fileID: 8300000, guid: d8afc547979cf384abac669eefe676a8, type: 3}
-  seSelectFish: {fileID: 8300000, guid: a182597da3cfbac4dbae33e590d3acdd, type: 3}
-  seSmoke: {fileID: 8300000, guid: a182597da3cfbac4dbae33e590d3acdd, type: 3}
-  seResultSuccess: {fileID: 8300000, guid: 65eb00c5948c1eb49822a77697eb5070, type: 3}
-  seResultFailed: {fileID: 8300000, guid: 3e26364b8f4ae2742a582da69c4af510, type: 3}
+  seTitleStart: {fileID: 8300000, guid: 12c778bbe9addad419d60958eb42ec8e, type: 3}
+  seSelectFish: {fileID: 8300000, guid: 1efd1f4676b4e9541a53241637bcd80e, type: 3}
+  seSmoke: {fileID: 8300000, guid: 5f78197385cd38d4b9b214eb8473d122, type: 3}
+  seResultSuccess: {fileID: 8300000, guid: 93ae522268779954fa5485c2aec425c1, type: 3}
+  seResultFailed: {fileID: 8300000, guid: 03b5715dd928ee94dba4c6cef802bda1, type: 3}
 --- !u!81 &8549729197369459256
 AudioListener:
   m_ObjectHideFlags: 0
