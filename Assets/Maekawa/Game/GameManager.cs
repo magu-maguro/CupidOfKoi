@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
     private GameData SelectGameData()
     {
         int randomIndex = UnityEngine.Random.Range(0, gameDataList.Count);
+        Debug.Log($"Selected GameData: {gameDataList[randomIndex].name}");
         return gameDataList[randomIndex];
     }
 
