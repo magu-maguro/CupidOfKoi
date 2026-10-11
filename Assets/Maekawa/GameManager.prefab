@@ -77,6 +77,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c1e0d3ed8fe7de74bb0206f76e6aa9b7, type: 2}
   - {fileID: 2100000, guid: a1f5761e5e8a6c644915dc9ffd87cf8e, type: 2}
   - {fileID: 2100000, guid: 74b83ef7802d8f5449166b8d8416b404, type: 2}
+  - {fileID: 2100000, guid: 6fe0dcb966b692b4a8e5286b6e20db28, type: 2}
+  - {fileID: 2100000, guid: 1aba2897c3e44f14cbff44b6844fde13, type: 2}
+  - {fileID: 2100000, guid: 9b9a64616f9810646906173cb341fe53, type: 2}
+  - {fileID: 2100000, guid: 1cb6183dc23c951458c5062e4bdf2998, type: 2}
+  - {fileID: 2100000, guid: 0ed26a95c85c54e48890c7545c0a5267, type: 2}
   eyeMaterials:
   - {fileID: 2100000, guid: 0c2db9859490451439e3acc25bf16f13, type: 2}
   - {fileID: 2100000, guid: 708c5a1c4b579834e9e4674f3db378cb, type: 2}
@@ -89,17 +94,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7868771186978305019}
     m_Modifications:
-    - target: {fileID: 96470444603256673, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1591403438039906736, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
       propertyPath: m_Name
       value: GameCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3053732957331959224, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4146664127811458161, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
       propertyPath: m_Pivot.x
@@ -179,14 +176,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4146664127811458161, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541968458591415307, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
-      propertyPath: m_Name
-      value: StartPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541968458591415307, guid: 91aca04aced6d3b4291b1e11d55c5b4a, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
