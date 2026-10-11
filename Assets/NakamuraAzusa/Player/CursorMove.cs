@@ -3,19 +3,51 @@ using UnityEngine.InputSystem;
 
 public class CursorMove : MonoBehaviour
 {
-    private void Update()
+    private Ray _lastRay;
+    private float _rayDistance = 100.0f;
+    private bool _hasFiredRay = false;
+
+    public void OnCatch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            CatchRay();
+        }
+    }
+
+    private void CatchRay()
     {
         if (Mouse.current != null)
         {
             Vector2 mousePosition = Mouse.current.position.ReadValue();
 
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+            _lastRay = ray;
+            _hasFiredRay = true;
+
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 10.0f))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.point);
+                if (hit.collider.CompareTag("Carp"))
+                {
+                    Debug.Log("タップされたオブジェクト: " + hit.collider.name);
+                    GameManager.Instance.GetComponent<CarpSpawner>().KoiSelected(this);
+                }
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!_hasFiredRay) return;
+
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawRay(_lastRay.origin, _lastRay.direction * _rayDistance);
+
+        Vector3 endPoint = _lastRay.origin + (_lastRay.direction * _rayDistance);
+        Gizmos.DrawSphere(endPoint, 0.2f);
     }
 }
