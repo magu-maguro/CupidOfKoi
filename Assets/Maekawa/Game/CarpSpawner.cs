@@ -42,7 +42,9 @@ public class CarpSpawner : MonoBehaviour
 
     public void KoiSelected(GameObject selectedCarp)
     {
-        selectedCarpIndex = selectedCarp.transform.GetSiblingIndex(); // 選択された鯉のインデックスを取得
+        //selectedCarpIndex = selectedCarp.transform.GetSiblingIndex(); // 選択された鯉のインデックスを取得
+        //Listの中身と比較
+        selectedCarpIndex = spawnedCarps.IndexOf(selectedCarp);
         if (selectedCarpIndex == 0)
         {
             GameManager.Instance.isCleared = true;
