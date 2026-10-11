@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e511edca75df624a958fc72e0fe7c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpSpawner
-  carpPrefab: {fileID: 919132149155446097, guid: 8f5ef9cc8a2ce7e4ca1a88e278a7c386, type: 3}
+  carpPrefab: {fileID: 4466228219030533189, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
   bodyMaterials:
   - {fileID: 2100000, guid: 41db10afae0cdbd4abe7569a950947ab, type: 2}
   - {fileID: 2100000, guid: ee5b01cf63c08dd409baee1850a51c5c, type: 2}
