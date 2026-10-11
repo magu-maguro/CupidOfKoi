@@ -29,6 +29,7 @@ public class TitleManager : MonoBehaviour
     {
         if(canChangeScene)
         {
+            SoundManager.Instance.PlaySe(SeType.TitleStart);
             SceneChanger.Instance.ChangeScene(SceneName.Game);
         }
     }
@@ -38,5 +39,6 @@ public class TitleManager : MonoBehaviour
         canChangeScene = true;
         text.SetActive(true);
         button.SetActive(true);
+        SoundManager.Instance.PlayBgm(BgmType.Title);
     }
 }

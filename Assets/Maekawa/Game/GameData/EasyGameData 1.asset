@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EasyGameData 1
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   koiCount: 10
-  timeLimit: 30
+  timeLimit: 120
