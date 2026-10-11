@@ -12,7 +12,7 @@ public enum GameState
 /// <summary>
 /// ゲームの進行状況など管理
 /// </summary>
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISceneLoaded
 {
     public static GameManager Instance { get; private set; }
     public GameState CurrentGameState { get; private set; } = GameState.Title;
@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnSceneLoaded()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        ChangeScene(sceneName);
     }
 
     public IEnumerator GameCoroutine()
@@ -130,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        //SceneManager.LoadScene(sceneName);
         if(sceneName == "MainGame")
         {
             StartCoroutine(GameCoroutine());
