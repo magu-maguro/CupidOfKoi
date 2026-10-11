@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u591A\u7530\u3000\u5F70\u5B8F\n\u4F50\u85E4\u3000\u305F\u3064\u3084"
+  m_text: "\u591A\u7530\u3000\u5F70\u5B8F\n\u4F50\u85E4\u3000\u7ADC\u77E2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8aba0321dceb78d4c838c65fddd84ad4, type: 2}
   m_sharedMaterial: {fileID: -5343046451154712859, guid: 8aba0321dceb78d4c838c65fddd84ad4, type: 2}
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u751F\u85E4\u3000\u78A7\n\u4E2D\u6751\u3000\u6893\n\u524D\u5DDD\u3000\u6075\u592A\n\u5C3E\u5F62\u3000\u512A\u8863\n\u9AD9\u6A4B\u3000\u7F8E\u7FBD\n\u798F\u5CF6\u3000\n"
+  m_text: "\u751F\u85E4\u3000\u78A7\n\u4E2D\u6751\u3000\u6893\n\u524D\u5DDD\u3000\u6075\u592A\n\u5C3E\u5F62\u3000\u512A\u8863\n\u9AD9\u6A4B\u3000\u7F8E\u7FBD\n\u798F\u5CF6\u3000\u7F8E\u592E\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8aba0321dceb78d4c838c65fddd84ad4, type: 2}
   m_sharedMaterial: {fileID: -5343046451154712859, guid: 8aba0321dceb78d4c838c65fddd84ad4, type: 2}
@@ -1275,10 +1275,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ecc507c6598f1374380dae4e64b5d55d, type: 2}
   - {fileID: 11400000, guid: f6b165969f0f0b045873362406ff12ef, type: 2}
   - {fileID: 11400000, guid: f6cf9413d560fdd4190ecaff2501a447, type: 2}
-  isCleared: 0
   startPanel: {fileID: 1380157131}
   smallPanel: {fileID: 1570861189}
   startText: {fileID: 1969040281}
+  isCleared: 0
+  selectedBodyMaterial: {fileID: 0}
+  selectedEyeMaterial: {fileID: 0}
+  gameEnded: 0
 --- !u!4 &704240699
 Transform:
   m_ObjectHideFlags: 0
@@ -1307,7 +1310,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e511edca75df624a958fc72e0fe7c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpSpawner
-  carpPrefab: {fileID: 0}
+  carpPrefab: {fileID: 919132149155446097, guid: 8f5ef9cc8a2ce7e4ca1a88e278a7c386, type: 3}
+  bodyMaterials:
+  - {fileID: 2100000, guid: 41db10afae0cdbd4abe7569a950947ab, type: 2}
+  - {fileID: 2100000, guid: ee5b01cf63c08dd409baee1850a51c5c, type: 2}
+  - {fileID: 2100000, guid: c1e0d3ed8fe7de74bb0206f76e6aa9b7, type: 2}
+  - {fileID: 2100000, guid: a1f5761e5e8a6c644915dc9ffd87cf8e, type: 2}
+  - {fileID: 2100000, guid: 74b83ef7802d8f5449166b8d8416b404, type: 2}
+  eyeMaterials:
+  - {fileID: 2100000, guid: 0c2db9859490451439e3acc25bf16f13, type: 2}
+  - {fileID: 2100000, guid: 708c5a1c4b579834e9e4674f3db378cb, type: 2}
+  selectedCarpIndex: -1
 --- !u!1 &932024109
 GameObject:
   m_ObjectHideFlags: 0
