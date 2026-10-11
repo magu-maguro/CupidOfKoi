@@ -1284,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2057069457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMove
   _mouseSensitivity: 0.1
-  _cameraTransform: {fileID: 1642484697}
+  _cameraTransform: {fileID: 0}
 --- !u!65 &2057069460
 BoxCollider:
   m_ObjectHideFlags: 0
