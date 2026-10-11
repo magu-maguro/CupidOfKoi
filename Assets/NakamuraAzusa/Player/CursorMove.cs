@@ -33,7 +33,11 @@ public class CursorMove : MonoBehaviour
                 if (hit.collider.CompareTag("Carp"))
                 {
                     Debug.Log("タップされたオブジェクト: " + hit.collider.name);
-                    GameManager.Instance.GetComponent<CarpSpawner>().KoiSelected(this);
+                    CarpController carpController = hit.collider.GetComponent<CarpController>();
+                    if (carpController != null)
+                    {
+                        carpController.TransitionToCatched();
+                    }
                 }
             }
         }
