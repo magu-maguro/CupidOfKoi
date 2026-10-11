@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using UnityEditor.Build.Content;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
-public class EndingManager : MonoBehaviour
+public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneLoading
 {
     public GameObject fish;
     public GameObject smoke;
@@ -19,12 +19,39 @@ public class EndingManager : MonoBehaviour
 
     public GameObject GoodEndingMessage;
     public GameObject BadEndingMessage;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   public void OnSceneChanged()
+
+    public bool isDummySuccess = true;
+
+    public void OnSceneLoaded()
     {
-        bool isSuccess = GameManager.Instance != null ? GameManager.Instance.isCleared : true;
+        SoundManager.Instance.PlayBgm(BgmType.Result);
+
+        Initialize();
+
+    }
+
+    private void Initialize()
+    {
+        fish.SetActive(false);
+        smoke.SetActive(false);
+        goodendingkyaras.ForEach(k => k.SetActive(false));
+        badendingkyaras.ForEach(k => k.SetActive(false));
+        goodendimage.SetActive(false);
+        badendimage.SetActive(false);
+        titleButton.SetActive(false);
+        GoodEndingMessage.SetActive(false);
+        BadEndingMessage.SetActive(false);
+    }
+
+    public void OnSceneChanged()
+    {
+        bool isSuccess = GameManager.Instance != null ? GameManager.Instance.isCleared : isDummySuccess;
         StartCoroutine(PlayResultAsync(isSuccess));
+    }
+
+    public void OnSceneLoading()
+    {
+        titleButton.SetActive(false);
     }
 
     private IEnumerator PlayResultAsync(bool isSuccess)
@@ -44,42 +71,11 @@ public class EndingManager : MonoBehaviour
         ? SeType.ResultSuccess
         : SeType.ResultFailed);
 
+        titleButton.SetActive(true);
     }
 
-    void Start()
+    public void OnClickTitleButton()
     {
-         StartCoroutine(PlayResultAsync(true));
-        //ShowInitialEnding();
-    }
-
-    void ShowInitialEnding()
-    {
-        bool Clear = GameManager.Instance.isCleared;
-        //bool Clear = true;
-
-        if(Clear)
-        {
-            goodendimage.gameObject.SetActive(true);
-            goodendingkyaras[1].gameObject.SetActive(true);
-            titleButton.gameObject.SetActive(true);
-            GoodEndingMessage.gameObject.SetActive(true);
-        }
-        else
-        {
-            badendimage.gameObject.SetActive(true);
-            badendingkyaras[2].gameObject.SetActive(true);
-            titleButton.gameObject.SetActive(true);
-            BadEndingMessage.gameObject.SetActive(true);
-        }
-    }
-
-    public void onclicktitleButton()
-    {
-        GameManager.Instance.ChangeScene("Title");
-    }
-
-    public void OnSceneLoaded()
-    {
-        SoundManager.Instance.PlayBgm(BgmType.Result);
+        SceneChanger.Instance.ChangeScene(SceneName.Title);
     }
 }

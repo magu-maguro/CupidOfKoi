@@ -5,7 +5,6 @@ using UnityEngine.Video;
 
 public class TitleManager : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName = "temp";
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private GameObject text;
     [SerializeField] private GameObject button;
@@ -30,7 +29,7 @@ public class TitleManager : MonoBehaviour
     {
         if(canChangeScene)
         {
-            GameManager.Instance.ChangeScene(nextSceneName);
+            SceneChanger.Instance.ChangeScene(SceneName.Game);
         }
     }
 
