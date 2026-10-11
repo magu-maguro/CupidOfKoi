@@ -11,7 +11,12 @@ public class CarpController : MonoBehaviour
 
     [SerializeField] private CarpState _currentState = CarpState.Normal;
 
-    [SerializeField] private CarpMove _carpMove;
+    private CarpMove _carpMove;
+
+    private void Awake()
+    {
+        _carpMove = GetComponent<CarpMove>();
+    }
 
     private void Update()
     {
