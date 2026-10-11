@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class CursorMove : MonoBehaviour
 {
-    private bool _isClick = false;
-
     private Ray _lastRay;
     private float _rayDistance = 100.0f;
     private bool _hasFiredRay = false;
@@ -13,20 +11,8 @@ public class CursorMove : MonoBehaviour
     {
         if (context.performed)
         {
-            _isClick = true;
+            CatchRay();
         }
-        else
-        {
-            _isClick = false;
-        }
-    }
-
-    private void Update()
-    {
-        CatchRay();
-
-        print(_isClick);
-
     }
 
     private void CatchRay()
