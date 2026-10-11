@@ -14,7 +14,7 @@ public class CarpSpawner : MonoBehaviour
         for (int i = 0; i < koiCount; i++)
         {
             //鯉のプレハブをランダムな位置に生成する処理をここに追加
-            Vector3 randomPosition = new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f), 0f);
+            Vector3 randomPosition = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-3f, 3f));
             GameObject carp = Instantiate(carpPrefab, randomPosition, Quaternion.identity);
             carp.transform.SetParent(transform); // CarpSpawnerの子として設定
             ApplyCarpMaterials(carp, i); // 鯉のマテリアルを適用

@@ -131,21 +131,29 @@ PrefabInstance:
       propertyPath: carpPrefab
       value: 
       objectReference: {fileID: 4466228219030533189, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+    - target: {fileID: 3347398741962193729, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4577841321349330582, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6460916409994508331, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7868771186978305019, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.27541
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7868771186978305019, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.93098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7868771186978305019, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.93864
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7868771186978305019, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
       propertyPath: m_LocalRotation.w
@@ -180,6 +188,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 858b9c32c42590a49bb45bbe04ac8302, type: 3}
+--- !u!1001 &634527695
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.97352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940907279302504191, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466228219030533189, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_Name
+      value: koiPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466228219030533189, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccd40c1e0a3f2fc4c89df0e1fd68f3ec, type: 3}
 --- !u!1 &967725325
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!114 &967725333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!54 &1595807467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -919,6 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!54 &1713590760
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1336,20 +1411,16 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2057069458}
-        m_TargetAssemblyTypeName: CursorMove, Assembly-CSharp
-        m_MethodName: OnCatch
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4104479e-ba5d-40bc-9956-1ec17d71548a
+      m_Calls: []
+    m_ActionId: 00b5f57f-5c9e-4737-9584-c6b49b006753
+    m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18ed621e-de49-4373-89a4-c2d602c43d0d
+    m_ActionName: 'Player/Hold[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e93953d7-17e7-42ea-b739-9b6d6f774a8a
     m_ActionName: 'Player/Catch[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
@@ -1365,7 +1436,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2057069456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3b1c91a3763534c8dc53730096ef21, type: 3}
+  m_Script: {fileID: 11500000, guid: 33e3e7b115e5e7b409ca63ad8470a830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursorMove
 --- !u!114 &2057069459
@@ -1377,7 +1448,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2057069456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab0a61da10199c4cb626a47f115d5ed, type: 3}
+  m_Script: {fileID: 11500000, guid: fb93795f51c3dfc48a3a567aa1e6be56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMove
   _mouseSensitivity: 0.1
@@ -1487,3 +1558,4 @@ SceneRoots:
   - {fileID: 1460526267}
   - {fileID: 2057069463}
   - {fileID: 143570738}
+  - {fileID: 634527695}
