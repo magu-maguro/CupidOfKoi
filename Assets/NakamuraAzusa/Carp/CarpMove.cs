@@ -16,7 +16,6 @@ public class CarpMove : MonoBehaviour
     {
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
 
-        _agent.updateRotation = false;
     }
     private void OnEnable()
     {
