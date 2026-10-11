@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour, ISceneLoaded
         startPanel.SetActive(false);
         smallPanel.SetActive(false);
         startText.SetActive(false);
+
+        //SoundManager.Instance.PlayBgm(BgmType.Title);
     }
 
     // Update is called once per frame
@@ -78,7 +80,8 @@ public class GameManager : MonoBehaviour, ISceneLoaded
 
         CurrentGameState = GameState.Result;
         DeactivateCarps();
-        SceneManager.LoadScene("EndingScene");
+        //SceneManager.LoadScene("EndingScene");
+        SceneChanger.Instance.ChangeScene("EndingScene");
     }
 
     private IEnumerator GameStart()
@@ -139,11 +142,15 @@ public class GameManager : MonoBehaviour, ISceneLoaded
         //SceneManager.LoadScene(sceneName);
         if(sceneName == "MainGame")
         {
+            SoundManager.Instance.PlayBgm(BgmType.Game);
             StartCoroutine(GameCoroutine());
+            
         }
         else if(sceneName == "Title")
         {
             ResetGame();
+            //SoundManager.Instance.PlayBgm(BgmType.Title);
+            SoundManager.Instance.PlayBgm(BgmType.Silent);
         }
     }
 
