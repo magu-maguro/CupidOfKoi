@@ -12,8 +12,6 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
 
     public List<GameObject> goodendingkyaras;
     public List<GameObject> badendingkyaras;
-    public GameObject goodendimage;
-    public GameObject badendimage;
 
     public GameObject titleButton;
 
@@ -35,8 +33,6 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
         smoke.SetActive(false);
         goodendingkyaras.ForEach(k => k.SetActive(false));
         badendingkyaras.ForEach(k => k.SetActive(false));
-        goodendimage.SetActive(false);
-        badendimage.SetActive(false);
         titleButton.SetActive(false);
         GoodEndingMessage.SetActive(false);
         BadEndingMessage.SetActive(false);
