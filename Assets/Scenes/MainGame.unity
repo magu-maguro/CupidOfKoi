@@ -1284,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2057069457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1419,7 +1419,19 @@ MonoBehaviour:
     m_ActionId: 18ed621e-de49-4373-89a4-c2d602c43d0d
     m_ActionName: 'Player/Hold[/Mouse/leftButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2057069458}
+        m_TargetAssemblyTypeName: CursorMove, Assembly-CSharp
+        m_MethodName: OnCatch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e93953d7-17e7-42ea-b739-9b6d6f774a8a
     m_ActionName: 'Player/Catch[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
