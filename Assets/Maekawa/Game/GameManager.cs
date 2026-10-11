@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(GameEnd());
 
         CurrentGameState = GameState.Result;
+        DeactivateCarps();
         SceneManager.LoadScene("EndingScene");
     }
 
@@ -144,6 +145,11 @@ public class GameManager : MonoBehaviour
     {
         selectedBodyMaterial = bodyMaterial;
         selectedEyeMaterial = eyeMaterial;
+    }
+
+    private void DeactivateCarps()
+    {
+        GetComponent<CarpSpawner>().ClearCarps();
     }
 
     public void ResetGame()

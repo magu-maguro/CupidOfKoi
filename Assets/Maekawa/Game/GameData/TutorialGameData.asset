@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TutorialGameData
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   koiCount: 2
-  timeLimit: 60
+  timeLimit: 30
