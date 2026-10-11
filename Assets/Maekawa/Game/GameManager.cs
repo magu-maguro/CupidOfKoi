@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<GameData> gameDataList; //ゲームデータのリスト
 
-    public bool isCleared = false;
+    
     private GameData selectedGameData;
 
     [Header("スタート演出用")]
@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject startText;
 
     //[Header("終了演出用")]
+
+    [Header("エンディングに渡すやつ")]
+    public bool isCleared = false;
+    public Material selectedBodyMaterial;
+    public Material selectedEyeMaterial;
+    public bool gameEnded = false;
     void Awake()
     {
         if (Instance == null)
@@ -93,6 +99,10 @@ public class GameManager : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < selectedGameData.timeLimit)
         {
+            if(gameEnded)
+            {
+                break;
+            }
             //タイマー処理
             elapsedTime += Time.deltaTime;
             float remainingTime = Mathf.Max(0f, selectedGameData.timeLimit - elapsedTime);
@@ -123,5 +133,25 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(GameCoroutine());
         }
+        else if(sceneName == "Title")
+        {
+            ResetGame();
+        }
+    }
+
+    public void SetSelectedMaterials(Material bodyMaterial, Material eyeMaterial)
+    {
+        selectedBodyMaterial = bodyMaterial;
+        selectedEyeMaterial = eyeMaterial;
+    }
+
+    public void ResetGame()
+    {
+        //ゲームのリセット処理
+        isCleared = false;
+        selectedBodyMaterial = null;
+        selectedEyeMaterial = null;
+
+        GetComponent<CarpSpawner>().ClearCarps();
     }
 }
