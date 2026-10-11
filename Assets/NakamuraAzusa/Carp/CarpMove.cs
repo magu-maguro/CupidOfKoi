@@ -15,8 +15,9 @@ public class CarpMove : MonoBehaviour
     private void Awake()
     {
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
-    }
 
+        _agent.updateRotation = false;
+    }
     private void OnEnable()
     {
          ResetInfo();
