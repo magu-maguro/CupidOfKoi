@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: NormalGameData 2
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   koiCount: 30
-  timeLimit: 30
+  timeLimit: 20
