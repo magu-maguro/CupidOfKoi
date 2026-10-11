@@ -20,7 +20,6 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
     public GameObject GoodEndingMessage;
     public GameObject BadEndingMessage;
 
-    public bool isDummySuccess = true;
 
     public void OnSceneLoaded()
     {
@@ -45,7 +44,14 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
 
     public void OnSceneChanged()
     {
-        bool isSuccess = GameManager.Instance != null ? GameManager.Instance.isCleared : isDummySuccess;
+        bool isSuccess = true;
+        if (GameManager.Instance != null)
+        {
+            isSuccess = GameManager.Instance.isCleared;
+            var eyeMaterial = GameManager.Instance.selectedEyeMaterial;
+            var bodyMaterial = GameManager.Instance.selectedBodyMaterial;
+            ApplyFishMaterial(eyeMaterial, bodyMaterial);
+        }
         StartCoroutine(PlayResultAsync(isSuccess));
     }
 
@@ -82,5 +88,13 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
     public void OnClickTitleButton()
     {
         SceneChanger.Instance.ChangeScene(SceneName.Title);
+    }
+
+    private void ApplyFishMaterial(Material eyeMaterial, Material bodyMaterial)
+    {
+        MeshRenderer[] renderers = fish.GetComponentsInChildren<MeshRenderer>();
+        renderers[0].material = eyeMaterial;
+        renderers[1].material = eyeMaterial;
+        renderers[2].material = bodyMaterial; 
     }
 }
