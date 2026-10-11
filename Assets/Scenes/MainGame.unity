@@ -357,6 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!114 &967725333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!54 &1595807467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -919,6 +923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbabd167e9a32654ca7bb8b8a8f2ef0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarpController
+  _currentState: 0
+  _carpMove: {fileID: 0}
 --- !u!54 &1713590760
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1209,7 +1215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2057069457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,20 +1342,16 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2057069458}
-        m_TargetAssemblyTypeName: CursorMove, Assembly-CSharp
-        m_MethodName: OnCatch
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4104479e-ba5d-40bc-9956-1ec17d71548a
+      m_Calls: []
+    m_ActionId: 00b5f57f-5c9e-4737-9584-c6b49b006753
+    m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18ed621e-de49-4373-89a4-c2d602c43d0d
+    m_ActionName: 'Player/Hold[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e93953d7-17e7-42ea-b739-9b6d6f774a8a
     m_ActionName: 'Player/Catch[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
@@ -1381,7 +1383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMove
   _mouseSensitivity: 0.1
-  _cameraTransform: {fileID: 1642484697}
+  _cameraTransform: {fileID: 0}
 --- !u!65 &2057069460
 BoxCollider:
   m_ObjectHideFlags: 0

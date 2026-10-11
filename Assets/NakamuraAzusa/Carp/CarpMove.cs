@@ -12,16 +12,21 @@ public class CarpMove : MonoBehaviour
 
     private Vector3 _walkDirection;
 
-    private void Start()
+    private void Awake()
     {
         if (_agent == null) _agent = GetComponent<NavMeshAgent>();
-
-        CoolTimeCoroutine = StartCoroutine(DecisionTargetCoolTimeRoutine(_interval));
     }
 
     private void OnEnable()
     {
-        CoolTimeCoroutine = StartCoroutine(DecisionTargetCoolTimeRoutine(_interval));
+         ResetInfo();
+
+         CoolTimeCoroutine = StartCoroutine(DecisionTargetCoolTimeRoutine(_interval));
+    }
+
+    private void OnDisable()
+    {
+        ResetInfo();
     }
 
     public void NavStop()
@@ -32,11 +37,22 @@ public class CarpMove : MonoBehaviour
 
     public void NavStart()
     {
-        if (_agent != null) _agent.isStopped = false;
+        if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
+        {
+            _agent.isStopped = false;
+        }
+
+        if (CoolTimeCoroutine == null)
+        {
+            StartCoroutine(DecisionTargetCoolTimeRoutine(_interval));
+        }
+
     }
 
     private void SetNewTargetDestination()
     {
+        if (_agent == null || !_agent.isActiveAndEnabled || !_agent.isOnNavMesh) return;
+
         float randomAngle = Random.Range(0f, 360f);
         _walkDirection = new Vector3(Mathf.Sin(randomAngle), 0, Mathf.Cos(randomAngle)).normalized;
 
@@ -57,6 +73,11 @@ public class CarpMove : MonoBehaviour
 
     private IEnumerator DecisionTargetCoolTimeRoutine(float coolTime)
     {
+        while (_agent != null && (!_agent.isActiveAndEnabled || !_agent.isOnNavMesh))
+        {
+            yield return null;
+        }
+
         while (true)
         {
             if (_agent != null && !_agent.isStopped)
@@ -73,6 +94,7 @@ public class CarpMove : MonoBehaviour
         if(CoolTimeCoroutine != null)
         {
             StopCoroutine(CoolTimeCoroutine);
+            CoolTimeCoroutine = null;
         }
     }
 }
