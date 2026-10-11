@@ -60,16 +60,21 @@ public class EndingManager : MonoBehaviour, ISceneChanged, ISceneLoaded, ISceneL
         fish.SetActive(true);
         yield return new WaitForSeconds(1f);
         smoke.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         goodendingkyaras[0].SetActive(isSuccess);
         badendingkyaras[0].SetActive(!isSuccess);
         fish.SetActive(false);
         titleButton.gameObject.SetActive(true);
         GoodEndingMessage.SetActive(isSuccess);
         BadEndingMessage.SetActive(!isSuccess);
+
+        yield return new WaitForSeconds(0.5f);
+
         SoundManager.Instance.PlaySe(isSuccess
         ? SeType.ResultSuccess
         : SeType.ResultFailed);
+
+        yield return new WaitForSeconds(0.5f);
 
         titleButton.SetActive(true);
     }
