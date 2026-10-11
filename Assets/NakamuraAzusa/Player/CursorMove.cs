@@ -7,6 +7,9 @@ public class CursorMove : MonoBehaviour
     private float _rayDistance = 100.0f;
     private bool _hasFiredRay = false;
 
+    [SerializeField] private GameSe _gameSe;
+    [SerializeField] private AudioClip _selectSE;
+
     public void OnCatch(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -36,6 +39,7 @@ public class CursorMove : MonoBehaviour
                     CarpController carpController = hit.collider.GetComponent<CarpController>();
                     if (carpController != null)
                     {
+                        _gameSe.Play(_selectSE);
                         carpController.TransitionToCatched();
                     }
                 }
