@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public enum GameState
 {
@@ -15,10 +16,25 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public GameState CurrentGameState { get; private set; } = GameState.Title;
+    public event Action<float> OnTimerUpdated;
 
     [SerializeField] private List<GameData> gameDataList; //ゲームデータのリスト
 
+    
+    private GameData selectedGameData;
+
+    [Header("スタート演出用")]
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject smallPanel;
+    [SerializeField] private GameObject startText;
+
+    //[Header("終了演出用")]
+
+    [Header("エンディングに渡すやつ")]
     public bool isCleared = false;
+    public Material selectedBodyMaterial;
+    public Material selectedEyeMaterial;
+    public bool gameEnded = false;
     void Awake()
     {
         if (Instance == null)
@@ -30,6 +46,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        startPanel.SetActive(false);
+        smallPanel.SetActive(false);
+        startText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,21 +76,38 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameStart()
     {
+        //GameData選択・スポーン処理
+        selectedGameData = SelectGameData();
+        GetComponent<CarpSpawner>().SpawnCarps(selectedGameData.koiCount);
+
+
         isCleared = false;
-        //何かしらの演出
-        yield return null;
+        //パネル表示、2秒待機、パネル非表示&右上小さいパネル表示&スタート表示
+        startPanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        startPanel.SetActive(false);
+        smallPanel.SetActive(true);
+        startText.SetActive(true);
+        //ここ効果音
+        yield return new WaitForSeconds(1f);
+        startText.SetActive(false);
     }
 
     private IEnumerator Game()
     {
         //ゲームの進行
-        //GameData選択
-        GameData selectedGameData = SelectGameData();
-
         float elapsedTime = 0f;
         while (elapsedTime < selectedGameData.timeLimit)
         {
+            if(gameEnded)
+            {
+                break;
+            }
+            //タイマー処理
             elapsedTime += Time.deltaTime;
+            float remainingTime = Mathf.Max(0f, selectedGameData.timeLimit - elapsedTime);
+            OnTimerUpdated?.Invoke(remainingTime);
+
             //ゲームの進行処理
             yield return null;
         }
@@ -79,12 +116,13 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameEnd()
     {
         //ゲーム終了後の処理
+        smallPanel.SetActive(false);
         yield return null;
     }
 
     private GameData SelectGameData()
     {
-        int randomIndex = Random.Range(0, gameDataList.Count);
+        int randomIndex = UnityEngine.Random.Range(0, gameDataList.Count);
         return gameDataList[randomIndex];
     }
 
@@ -95,5 +133,25 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(GameCoroutine());
         }
+        else if(sceneName == "Title")
+        {
+            ResetGame();
+        }
+    }
+
+    public void SetSelectedMaterials(Material bodyMaterial, Material eyeMaterial)
+    {
+        selectedBodyMaterial = bodyMaterial;
+        selectedEyeMaterial = eyeMaterial;
+    }
+
+    public void ResetGame()
+    {
+        //ゲームのリセット処理
+        isCleared = false;
+        selectedBodyMaterial = null;
+        selectedEyeMaterial = null;
+
+        GetComponent<CarpSpawner>().ClearCarps();
     }
 }

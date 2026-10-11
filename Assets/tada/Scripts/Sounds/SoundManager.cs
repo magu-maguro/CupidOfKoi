@@ -18,7 +18,7 @@ public enum BgmType
     Result,    // 結果画面
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
     [Header("BGM")]
     [SerializeField] private AudioSource bgmAudioSource;
@@ -41,36 +41,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip seResultSuccess;
     [SerializeField] private AudioClip seResultFailed;
 
-    private static SoundManager instance;
-    public static SoundManager Instance => instance;
-
     private BgmType? currentBgmType = null;
     private Coroutine plyaingBgmCoroutine = null;
 
-    private void Awake()
-    {
-        // すでにあるなら自身を削除
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        instance = this;
-
-        // シーンをまたぐので残しておく
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
-    }
-
-    // 使い方：SouncManager.Instance.PlayBgm(BgmType.Title);
+    // 使い方：SoundManager.Instance.PlayBgm(BgmType.Title);
     public void PlayBgm(BgmType bgmType)
     {
         if (currentBgmType == bgmType) return;
@@ -130,7 +104,7 @@ public class SoundManager : MonoBehaviour
         };
     }
 
-    // 使い方：SouncManager.Instance.PlaySe(SeType.SelectFish);
+    // 使い方：SoundManager.Instance.PlaySe(SeType.SelectFish);
     public void PlaySe(SeType seType)
     {
         var clip = GetAudioClip(seType);

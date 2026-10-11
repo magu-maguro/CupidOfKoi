@@ -7,34 +7,8 @@ public enum FadeType
     Alpha,
 }
 
-public class FadeManager : MonoBehaviour
+public class FadeManager : SingletonMonoBehaviour<FadeManager>
 {
-    private static FadeManager instance;
-    public static FadeManager Instance => instance;
-
-    private void Awake()
-    {
-        // すでにあるなら自身を削除
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        instance = this;
-
-        // シーンをまたぐので残しておく
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            instance = null;
-        }
-    }
-
     [SerializeField] private GameObject root;
     [SerializeField] private Graphic alphaImage;
 
@@ -47,18 +21,14 @@ public class FadeManager : MonoBehaviour
 
     public IEnumerator Fadeout(FadeType fadeType = FadeType.Alpha)
     {
-        Debug.Log("フェードアウト開始");
         root.SetActive(true);
         yield return Fade(fadeType, 0f, 1f);
-        Debug.Log("フェードアウト終了");
     }
 
     public IEnumerator Fadein(FadeType fadeType = FadeType.Alpha)
     {
-        Debug.Log("フェードイン開始");
         yield return Fade(fadeType, 1f, 0f);
         root.SetActive(false);
-        Debug.Log("フェードイン終了");
     }
 
     private IEnumerator Fade(FadeType fadeType, float fromAlpha, float toAlpha)
