@@ -23,7 +23,7 @@ public class EndingManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    public void OnSceneChanged()
     {
-        bool isSuccess = true;
+        bool isSuccess = GameManager.Instance != null ? GameManager.Instance.isCleared : true;
         StartCoroutine(PlayResultAsync(isSuccess));
     }
 
@@ -48,17 +48,8 @@ public class EndingManager : MonoBehaviour
 
     void Start()
     {
-        fish.gameObject.SetActive(true);
-        titleButton.gameObject.SetActive(false);
-
-        goodendimage.gameObject.SetActive(false);
-        badendimage.gameObject.SetActive(false);
-
-        goodendingkyaras[1].gameObject.SetActive(false);
-        badendingkyaras[2].gameObject.SetActive(false);
-
-        ShowInitialEnding();
-
+         StartCoroutine(PlayResultAsync(true));
+        //ShowInitialEnding();
     }
 
     void ShowInitialEnding()
@@ -85,5 +76,10 @@ public class EndingManager : MonoBehaviour
     public void onclicktitleButton()
     {
         GameManager.Instance.ChangeScene("Title");
+    }
+
+    public void OnSceneLoaded()
+    {
+        SoundManager.Instance.PlayBgm(BgmType.Result);
     }
 }
