@@ -40,5 +40,6 @@ public class CarpController : MonoBehaviour
     {
         TransitionTo(CarpState.Catched);
         _carpMove.NavStop();
+        GameManager.Instance.GetComponent<CarpSpawner>().KoiSelected(gameObject);
     }
 }
