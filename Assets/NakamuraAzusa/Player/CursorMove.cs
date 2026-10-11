@@ -1,0 +1,66 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class CursorMove : MonoBehaviour
+{
+    private bool _isClick = false;
+
+    private Ray _lastRay;
+    private float _rayDistance = 100.0f;
+    private bool _hasFiredRay = false;
+
+    public void OnCatch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _isClick = true;
+        }
+        else
+        {
+            _isClick = false;
+        }
+    }
+
+    private void Update()
+    {
+        CatchRay();
+
+        print(_isClick);
+
+    }
+
+    private void CatchRay()
+    {
+        if (Mouse.current != null)
+        {
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+            _lastRay = ray;
+            _hasFiredRay = true;
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                if (hit.collider.CompareTag("Carp"))
+                {
+                    Debug.Log("タップされたオブジェクト: " + hit.collider.name);
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!_hasFiredRay) return;
+
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawRay(_lastRay.origin, _lastRay.direction * _rayDistance);
+
+        Vector3 endPoint = _lastRay.origin + (_lastRay.direction * _rayDistance);
+        Gizmos.DrawSphere(endPoint, 0.2f);
+    }
+}
