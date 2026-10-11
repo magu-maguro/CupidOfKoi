@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour, ISceneLoaded
         isCleared = false;
         //パネル表示、2秒待機、パネル非表示&右上小さいパネル表示&スタート表示
         startPanel.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         startPanel.SetActive(false);
         smallPanel.SetActive(true);
         startText.SetActive(true);
@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour, ISceneLoaded
         isCleared = false;
         selectedBodyMaterial = null;
         selectedEyeMaterial = null;
+        gameEnded = false;
 
         GetComponent<CarpSpawner>().ClearCarps();
     }
